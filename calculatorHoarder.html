@@ -65,13 +65,13 @@
 					document.getElementById("totalDeliverers").innerHTML = deliverers + " Auto-Deliverers";
 					calculatorPrice += 1.25*deliverers;
 					document.getElementById("button2").innerHTML = "Get an Auto-Deliverer (" + Math.floor(calculatorPrice) + " Calculators)";
-					calculatorsPerSecond = geeks + deliverers/10 + wizards*10;
+					calculatorsPerSecond = geeks + deliverers/5 + wizards*10;
 					document.getElementById("perSecond").innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
 				}
 			}
 			
 			function getAutoCalculators(){
-				calculators += (0.001*deliverers)+(0.01*geeks)+(0.1*wizards);
+				calculators += (0.001*deliverers)+(0.02*geeks)+(0.1*wizards);
 				document.getElementById("totalCalculators").innerHTML = Math.floor(calculators) + " Calculators";
 				if(calculators>=geekTrust && document.getElementById("button3").style.visibility == 'hidden'){
 					document.getElementById("button3").style.visibility = 'visible';
@@ -90,7 +90,7 @@
 					document.getElementById("totalGeeks").innerHTML = geeks + " Geeks";
 					geekTrust += 1.5*geeks;
 					document.getElementById("button3").innerHTML = "Befriend a Geek (" + Math.floor(geekTrust) + " Calculators)";
-					calculatorsPerSecond = geeks + deliverers/10 + wizards*10;
+					calculatorsPerSecond = geeks + deliverers/5 + wizards*10;
 					document.getElementById("perSecond").innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
 				}
 			}
@@ -104,7 +104,7 @@
 					document.getElementById("totalWizards").innerHTML = wizards + " Wizards";
 					wizardMagic += 1.75*wizards;
 					document.getElementById("button4").innerHMTL = "Find a Wizard (" + Math.floor(wizardMagic) + " Calculators)";
-					calculatorsPerSecond = geeks + deliverers/10 + wizards*10;
+					calculatorsPerSecond = geeks + deliverers/5 + wizards*10;
 					document.getElementById("perSecond").innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
 				}
 			}
