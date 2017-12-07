@@ -1,86 +1,108 @@
 <html>
-<head>
-<title>
-Calculator Hoarder
-</title>
-<style>
-body{
-	font-family: "Courier New"
-}
-</style>
-</head>
-<body>
-<H1 id="totalCalculators">0 Calculators</H1>
-<div id="perSecond">(0 Calculators per second)</div>
-<H2 id="totalDeliverers">0 Auto-Deliverers</H2>
-<H2 id="totalGeeks">0 Geeks</H2>
-<button onclick="getCalculators()">Get A Calculator.</button><br><br>
-<button onclick="getDeliverer()" id="button2">Get an Auto-Deliverer (25 Calculators)</button><br><br>
-<button onclick="befriendGeek()" id="button3">Befriend a Geek (100 Calculators)</button><br><br>
-<!--<button onclick="findWizard()" id="button4">Find a Wizard (500 Calculators)</button><br><br>
-<button onclick="harnessGuruPower()" id="button5">Harness the Power of a Guru (2,500 Calculators)</button><br><br>
+	<head>
+		<title>
+			Calculator Hoarder
+		</title>
+		<style>
+			body{
+				font-family: "Courier New"
+			}
+		</style>
+	</head>
+	<body>
+		<H1 id="totalCalculators">0 Calculators</H1>
+		<div id="perSecond">(0 Calculators per second)</div>
+		<H2 id="totalDeliverers">0 Auto-Deliverers</H2>
+		<H2 id="totalGeeks">0 Geeks</H2>
+		<H2 id="totalWizards">0 Wizards</H2>
+		<button onclick="getCalculators()">Get A Calculator.</button><br><br>
+		<button onclick="getDeliverer()" id="button2">Get an Auto-Deliverer (25 Calculators)</button><br><br>
+		<button onclick="befriendGeek()" id="button3">Befriend a Geek (100 Calculators)</button><br><br>
+		<button onclick="findWizard()" id="button4">Find a Wizard (500 Calculators)</button><br><br>
+<!--<button onclick="harnessGuruPower()" id="button5">Harness the Power of a Guru (2,500 Calculators)</button><br><br>
 <button onclick="discoverMartians()" id="button6">Discover Martian Life (10,000 Calculators)</button><br><br>
 <button onclick="ultimateOverclock()" id="button7">The Ultimate Overclocking. (100,000 Calculators)</button>
 -->
-<SCRIPT>
-var calculators=0;
-var deliverers=0;
-var geeks=0;
-var calculatorPrice=25;
-var geekTrust=100;
-var calculatorsPerSecond=0;
-document.getElementById("button2").style.visibility = 'hidden';
-document.getElementById("totalDeliverers").style.visibility = 'hidden';
-document.getElementById("button3").style.visibility = 'hidden';
-document.getElementById("totalGeeks").style.visibility = 'hidden';
-function getCalculators(){
-	calculators += 1;
-	document.getElementById("totalCalculators").innerHTML = Math.floor(calculators) + " Calculators";
-	if(calculators>=calculatorPrice && document.getElementById("button3").style.visibility == 'hidden'){
-		document.getElementById("button2").style.visibility = 'visible';
-	}
-	if(calculators>=geekTrust && document.getElementById("button3").style.visibility == 'hidden'){
-		document.getElementById("button3").style.visibility = 'visible';
-	}
-}
-function getDeliverer(){
-	if(calculators >= calculatorPrice){
-		if(deliverers==0){
-			setInterval('getAutoCalculators()',10);
-		}
-		calculators -= calculatorPrice;
-		deliverers +=1;
-		document.getElementById("totalCalculators").innerHTML = calculators + " Calculators";
-		document.getElementById("totalDeliverers").style.visibility = 'visible';
-		document.getElementById("totalDeliverers").innerHTML = deliverers + " Auto-Deliverers";
-		calculatorPrice += 1.25*deliverers;
-		document.getElementById("button2").innerHTML = "Get an Auto-Deliverer (" + Math.floor(calculatorPrice) + " Calculators)";
-		calculatorsPerSecond = geeks + deliverers/10;
-		document.getElementById("perSecond").innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
-	}
-}
-
-function getAutoCalculators(){
-	calculators += (0.001*deliverers)+(0.01*geeks);
-	document.getElementById("totalCalculators").innerHTML = Math.floor(calculators) + " Calculators";
-	if(calculators>=geekTrust && document.getElementById("button3").style.visibility == 'hidden'){
-		document.getElementById("button3").style.visibility = 'visible';
-	}
-}
-
-function befriendGeek(){
-	if(calculators >= geekTrust){
-		calculators -= geekTrust;
-		geeks += 1;
-		document.getElementById("totalCalculators").innerHTML = calculators + " Calculators";
-		document.getElementById("totalGeeks").style.visibility = 'visible';
-		document.getElementById("totalGeeks").innerHTML = geeks + " Geeks";
-		geekTrust += 1.5*geeks;
-		document.getElementById("button3").innerHTML = "Befriend a Geek (" + Math.floor(geekTrust) + " Calculators)";
-		calculatorsPerSecond = geeks + deliverers/10;
-		document.getElementById("perSecond").innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
-	}
-}
-</SCRIPT>
-</body>
+		<SCRIPT>
+			var calculators=0;
+			var deliverers=0;
+			var geeks=0;
+			var wizards=0;
+			var calculatorPrice=25;
+			var geekTrust=100;
+			var wizardMagic=500;
+			var calculatorsPerSecond=0;
+			document.getElementById("button2").style.visibility = 'hidden';
+			document.getElementById("totalDeliverers").style.visibility = 'hidden';
+			document.getElementById("button3").style.visibility = 'hidden';
+			document.getElementById("totalGeeks").style.visibility = 'hidden';
+			document.getElementById("button4").style.visibility = 'hidden'
+			document.getElementById("totalWizards").style.visibility = 'hidden';
+			function getCalculators(){
+				calculators += 1;
+				document.getElementById("totalCalculators").innerHTML = Math.floor(calculators) + " Calculators";
+				if(calculators>=calculatorPrice && document.getElementById("button3").style.visibility == 'hidden'){
+					document.getElementById("button2").style.visibility = 'visible';
+				}
+				if(calculators>=geekTrust && document.getElementById("button3").style.visibility == 'hidden'){
+					document.getElementById("button3").style.visibility = 'visible';
+				}
+			}
+			function getDeliverer(){
+				if(calculators >= calculatorPrice){
+					if(deliverers==0){
+						setInterval('getAutoCalculators()',10);
+					}
+					calculators -= calculatorPrice;
+					deliverers +=1;
+					document.getElementById("totalCalculators").innerHTML = calculators + " Calculators";
+					document.getElementById("totalDeliverers").style.visibility = 'visible';
+					document.getElementById("totalDeliverers").innerHTML = deliverers + " Auto-Deliverers";
+					calculatorPrice += 1.25*deliverers;
+					document.getElementById("button2").innerHTML = "Get an Auto-Deliverer (" + Math.floor(calculatorPrice) + " Calculators)";
+					calculatorsPerSecond = geeks + deliverers/10 + wizards*10;
+					document.getElementById("perSecond").innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
+				}
+			}
+			
+			function getAutoCalculators(){
+				calculators += (0.001*deliverers)+(0.01*geeks)+(0.1*wizards);
+				document.getElementById("totalCalculators").innerHTML = Math.floor(calculators) + " Calculators";
+				if(calculators>=geekTrust && document.getElementById("button3").style.visibility == 'hidden'){
+					document.getElementById("button3").style.visibility = 'visible';
+				}
+				if(calculators>=wizardMagic && document.getElementById("button4").style.visibility == 'hidden'){
+					document.getElementById("button4").style.visibility = 'visible';
+				}
+			}
+			
+			function befriendGeek(){
+				if(calculators >= geekTrust){
+					calculators -= geekTrust;
+					geeks += 1;
+					document.getElementById("totalCalculators").innerHTML = calculators + " Calculators";
+					document.getElementById("totalGeeks").style.visibility = 'visible';
+					document.getElementById("totalGeeks").innerHTML = geeks + " Geeks";
+					geekTrust += 1.5*geeks;
+					document.getElementById("button3").innerHTML = "Befriend a Geek (" + Math.floor(geekTrust) + " Calculators)";
+					calculatorsPerSecond = geeks + deliverers/10 + wizards*10;
+					document.getElementById("perSecond").innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
+				}
+			}
+			
+			function findWizard(){
+				if(calculators >= wizardMagic){
+					calculators -= wizardMagic;
+					wizards += 1;
+					document.getElementById("totalCalculators").innerHTML = calculators + " Calculators";
+					document.getElementById("totalWizards").style.visibility = 'visible';
+					document.getElementById("totalWizards").innerHTML = wizards + " Wizards";
+					wizardMagic += 1.75*wizards;
+					document.getElementById("button4").innerHMTL = "Find a Wizard (" + Math.floor(wizardMagic) + " Calculators)";
+					calculatorsPerSecond = geeks + deliverers/10 + wizards*10;
+					document.getElementById("perSecond").innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
+				}
+			}
+		</SCRIPT>
+	</body>
 </html>
