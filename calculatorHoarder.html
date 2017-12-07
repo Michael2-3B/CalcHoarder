@@ -24,6 +24,7 @@
 <button onclick="ultimateOverclock()" id="button7">The Ultimate Overclocking. (100,000 Calculators)</button>
 -->
 		<SCRIPT>
+			var startedFlag=0;
 			var calculators=0;
 			var deliverers=0;
 			var geeks=0;
@@ -47,12 +48,16 @@
 				if(calculators>=geekTrust && document.getElementById("button3").style.visibility == 'hidden'){
 					document.getElementById("button3").style.visibility = 'visible';
 				}
+				if(calculators>=wizardMagic && document.getElementById("button4").style.visibility == 'hidden'){
+					document.getElementById("button4").style.visibility = 'visible';
+				}
+				if(startedFlag==0){
+					setInterval('getAutoCalculators()',10);
+					startedFlag = 1;
+				}
 			}
 			function getDeliverer(){
 				if(calculators >= calculatorPrice){
-					if(deliverers==0){
-						setInterval('getAutoCalculators()',10);
-					}
 					calculators -= calculatorPrice;
 					deliverers +=1;
 					document.getElementById("totalCalculators").innerHTML = calculators + " Calculators";
