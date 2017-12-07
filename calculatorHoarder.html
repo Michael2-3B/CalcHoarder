@@ -103,7 +103,7 @@
 					document.getElementById("totalWizards").style.visibility = 'visible';
 					document.getElementById("totalWizards").innerHTML = wizards + " Wizards";
 					wizardMagic += 1.75*wizards;
-					document.getElementById("button4").innerHMTL = "Find a Wizard (" + wizardMagic + " Calculators)";
+					document.getElementById("button4").innerHTML = "Find a Wizard (" + Math.floor(wizardMagic) + " Calculators)";
 					calculatorsPerSecond = geeks + deliverers/5 + wizards*10;
 					document.getElementById("perSecond").innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
 				}
