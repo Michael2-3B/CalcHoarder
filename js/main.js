@@ -110,7 +110,7 @@ function findWizard() {
     perSecond.innerHTML = "(" + cPS.toFixed(1) + " calculators per second)";
   }
   
-  function harnessGuruPower(){
+  function harnessGuruPower() {
     if (calculators >= nextGuru){
       calculators -= nextGuru;
       gurus += 1;
@@ -124,7 +124,7 @@ function findWizard() {
     }
   }
   
-  function discoverMartians(){
+  function discoverMartians() {
     if (calculators >= kermMartian){
       calculators -= kermMartian;
       martians += 1;
@@ -138,7 +138,7 @@ function findWizard() {
     }
   }
   
-  function ultimateOverclock(){
+  function ultimateOverclock() {
     if (calculators >= nextOverclock){
       calculators -= nextOverclock;
       overclocks += 1;
