@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Calculator Hoarder
+		</title>
+		<style>
+			body {
+				font-family: "Courier New"
+			}
+		</style>
+	</head>
+	<body>
+		<H1 id="totalCalculators">0 Calculators</H1>
+		<div id="perSecond">(0 Calculators per second)</div>
+		<H2 id="totalDeliverers" style="visibility: hidden;">0 Auto-Deliverers</H2>
+		<H2 id="totalGeeks" style="visibility: hidden;">0 Geeks</H2>
+		<H2 id="totalWizards" style="visibility: hidden;">0 Wizards</H2>
+		<button onclick="getCalculators()">Get A Calculator.</button><br><br>
+		<button onclick="getDeliverer()" id="button2" style="visibility: hidden;">Get an Auto-Deliverer (25 Calculators)</button><br><br>
+		<button onclick="befriendGeek()" id="button3" style="visibility: hidden;">Befriend a Geek (100 Calculators)</button><br><br>
+		<button onclick="findWizard()" id="button4" style="visibility: hidden;">Find a Wizard (500 Calculators)</button><br><br>
+<!--<button onclick="harnessGuruPower()" id="button5">Harness the Power of a Guru (2,500 Calculators)</button><br><br>
+<button onclick="discoverMartians()" id="button6">Discover Martian Life (10,000 Calculators)</button><br><br>
+<button onclick="ultimateOverclock()" id="button7">The Ultimate Overclocking. (100,000 Calculators)</button>
+-->
+		<SCRIPT src="js/main.js"></SCRIPT>
+	</body>
+</html>
