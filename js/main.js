@@ -24,7 +24,7 @@ var calculators = 0,
     overclocks = 0,
     nextSeller = 25,
     nextGeek = 100,
-	nextWizard = 500,
+    nextWizard = 500,
     nextGuru = 2500,
     kermMartian = 10000,
     nextOverclock = 100000,
@@ -60,7 +60,7 @@ function makeVisible(){
 		button6.style.visibility = 'visible';
 	}
 	if (calculators >= nextOverclock && button7.style.visibility == 'hidden'){
-		button7.style.visibilty = 'visible';
+		button7.style.visibility = 'visible';
 	}
 }
 
