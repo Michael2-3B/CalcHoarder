@@ -1,32 +1,40 @@
-var totalCalculators = document.getElementById("totalCalculators");
-var totalSellers = document.getElementById("totalSellers");
-var totalGeeks = document.getElementById("totalGeeks");
-var totalWizards = document.getElementById("totalWizards");
-var totalGurus = document.getElementById("totalGurus");
-var totalMartians = document.getElementById("totalMartians");
-var totalOverclockers = document.getElementById("totalOverclockers");
-var button2 = document.getElementById("button2");
-var button3 = document.getElementById("button3");
-var button4 = document.getElementById("button4");
-var button5 = document.getElementById("button5");
-var button6 = document.getElementById("button6");
-var button7 = document.getElementById("button7");
-var perSecond = document.getElementById("perSecond");
+var totalCalculators = document.getElementById("totalCalculators"),
+    totalSellers = document.getElementById("totalSellers"),
+    totalGeeks = document.getElementById("totalGeeks"),
+    totalWizards = document.getElementById("totalWizards"),
+    totalGurus = document.getElementById("totalGurus"),
+    totalMartians = document.getElementById("totalMartians"),
+    totalOverclockers = document.getElementById("totalOverclockers");
+    
+var button2 = document.getElementById("button2"),
+    button3 = document.getElementById("button3"),
+    button4 = document.getElementById("button4"),
+    button5 = document.getElementById("button5"),
+    button6 = document.getElementById("button6"),
+    button7 = document.getElementById("button7"),
+    perSecond = document.getElementById("perSecond");
 
-var calculators = 0;
-var sellers = 0;
-var geeks = 0;
-var wizards = 0;
-var gurus = 0;
-var martians = 0;
-var overclocks = 0;
-var nextSeller = 25;
-var nextGeek = 100;
-var nextWizard = 500;
-var nextGuru = 2500;
-var kermMartian = 10000;
-var nextOverclock = 100000;
-var calculatorsPerSecond = 0;
+var calculators = 0,
+    sellers = 0,
+    geeks = 0,
+    wizards = 0,
+    gurus = 0,
+    martians = 0,
+    overclocks = 0,
+    nextSeller = 25,
+    nextGeek = 100,
+    nextWizard = 500,
+    nextGuru = 2500,
+    kermMartian = 10000,
+    nextOverclock = 100000,
+    calculatorsPerSecond = 0;
+
+var sellerOutput = 0.002,
+    geekOutput = 0.01,
+    wizardOuput = 0.1,
+    guruOutput = 1,
+    martianOutput = 10,
+    overclockOutput = 100;
 
 function getCalculators() {
   calculators += 1;
@@ -56,11 +64,9 @@ function makeVisible(){
 }
 
 function getAutoCalculators() {
-  calculators += (0.002 * sellers) + (0.01 * geeks) + (0.1 * wizards) + (1 * gurus) + (10 * martians) + (100 * overclocks);
+  calculators += (sellerOutput * sellers) + (geekOutput * geeks) + (wizardOutput * wizards) + (guruOutput * gurus) + (martianOutput * martians) + (overclockOutput * overclocks);
   totalCalculators.innerHTML = Math.floor(calculators) + " Calculators";
-  makeVisibile();
-  calculatorsPerSecond = (sellers / 5) + geeks + (wizards * 10) + (gurus * 100) + (martians * 1000) + (overclocks * 10000);
-  perSecond.innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
+  makeVisible();
 }
 
 function getSeller() {
@@ -72,7 +78,7 @@ function getSeller() {
     totalSellers.innerHTML = sellers + " Sellers";
     nextSeller += 1.25 * sellers;
     button2.innerHTML = "Get a Seller (" + Math.floor(nextSeller) + " Calculators)";
-    calculatorsPerSecond += 0.2;
+    calculatorsPerSecond += sellerOutput;
     perSecond.innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
   }
 }
@@ -86,6 +92,8 @@ function befriendGeek() {
     totalGeeks.innerHTML = geeks + " Geeks";
     nextGeek += 1.5 * geeks;
     button3.innerHTML = "Befriend a Geek (" + Math.floor(nextGeek) + " Calculators)";
+    calculatorsPerSecond += geekOutput;
+    perSecond.innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
   }
 }
 
@@ -98,6 +106,8 @@ function findWizard() {
     totalWizards.innerHTML = wizards + " Wizards";
     nextWizard += 1.75 * wizards;
     button4.innerHTML = "Find a Wizard (" + Math.floor(nextWizard) + " Calculators)";
+    calculatorsPerSecond += wizardOutput;
+    perSecond.innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
   }
   
   function harnessGuruPower(){
@@ -109,6 +119,8 @@ function findWizard() {
       totalGurus.innerHTML = gurus + " Gurus";
       nextGuru += 2 * gurus;
       button5.innerHTML = "Harness Guru Power (" + Math.floor(nextGuru) + " Calculators)";
+      calculatorsPerSecond += guruOutput;
+      perSecond.innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
     }
   }
   
@@ -121,6 +133,8 @@ function findWizard() {
       totalMartians.innerHTML = martians + " Martians";
       kermMartian += 2.25 * martians;
       button6.innerHTML = "Discover Martian Life (" + Math.floor(kermMartian) + " Calculators)";
+      calculatorsPerSecond += martianOutput;
+      perSecond.innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
     }
   }
   
@@ -133,6 +147,8 @@ function findWizard() {
       totalOverclockers.innerHTML = overclocks + " Overclockers";
       nextOverclock += 3 * overclocks;
       button7.innerHTML = "The Ultimate Overclocking. (" + Math.floor(nextOverclock) + " Calculators)";
+      calculatorsPerSecond += overclockOutput;
+      perSecond.innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
     }
   }
 
