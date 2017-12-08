@@ -19,7 +19,7 @@ var calculatorsPerSecond = 0;
 function getCalculators() {
   calculators += 1;
   totalCalculators.innerHTML = Math.floor(calculators) + " Calculators";
-  if (calculators >= delivererPrice && button3.style.visibility == 'hidden') {
+  if (calculators >= sellerPrice && button3.style.visibility == 'hidden') {
     button2.style.visibility = 'visible';
   }
   if (calculators >= geekTrust && button3.style.visibility == 'hidden') {
@@ -51,7 +51,7 @@ function getSeller() {
     totalCalculators.innerHTML = calculators + " Calculators";
     totalSellers.style.visibility = 'visible';
     totalSellers.innerHTML = sellers + " Sellers";
-    delivererPrice += 1.25 * sellers;
+    sellerPrice += 1.25 * sellers;
     button2.innerHTML = "Get a Seller (" + Math.floor(sellerPrice) + " Calculators)";
   }
 }
