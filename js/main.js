@@ -72,6 +72,8 @@ function getSeller() {
     totalSellers.innerHTML = sellers + " Sellers";
     nextSeller += 1.25 * sellers;
     button2.innerHTML = "Get a Seller (" + Math.floor(nextSeller) + " Calculators)";
+    calculatorsPerSecond += 0.2;
+    perSecond.innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
   }
 }
 
@@ -118,7 +120,7 @@ function findWizard() {
       totalMartians.style.visibility = 'visible';
       totalMartians.innerHTML = martians + " Martians";
       kermMartian += 2.25 * martians;
-      button6.innerHTML = "Discover a Martian Colony (" + Math.floor(kermMartian) + " Calculators)";
+      button6.innerHTML = "Discover Martian Life (" + Math.floor(kermMartian) + " Calculators)";
     }
   }
   
@@ -130,7 +132,7 @@ function findWizard() {
       totalOverclockers.style.visibility = 'visible';
       totalOverclockers.innerHTML = overclocks + " Overclockers";
       nextOverclock += 3 * overclocks;
-      button7.innerHTML = "Ultimate Overclocking (" + Math.floor(nextOverclock) + " Calculators)";
+      button7.innerHTML = "The Ultimate Overclocking. (" + Math.floor(nextOverclock) + " Calculators)";
     }
   }
 
