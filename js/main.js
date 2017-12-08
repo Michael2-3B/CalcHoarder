@@ -1,4 +1,4 @@
-//build 12/7/17 11:10PM CENTRAL
+//build 12/7/17 11:34PM CENTRAL
 var totalCalculators = document.getElementById("totalCalculators"),
     totalSellers = document.getElementById("totalSellers"),
     totalGeeks = document.getElementById("totalGeeks"),
