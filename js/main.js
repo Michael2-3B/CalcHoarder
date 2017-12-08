@@ -79,7 +79,7 @@ function getSeller() {
     nextSeller += 1.25 * sellers;
     button2.innerHTML = "Get a Seller (" + Math.floor(nextSeller) + " Calculators)";
     cPS += sellerOutput * 100;
-    perSecond.innerHTML = "(" + cPS + " Calculators per second)";
+    perSecond.innerHTML = "(" + cPS.toFixed(1) + " Calculators per second)";
   }
 }
 
@@ -93,7 +93,7 @@ function befriendGeek() {
     nextGeek += 1.5 * geeks;
     button3.innerHTML = "Befriend a Geek (" + Math.floor(nextGeek) + " Calculators)";
     cPS += geekOutput * 100;
-    perSecond.innerHTML = "(" + cPS + " Calculators per second)";
+    perSecond.innerHTML = "(" + cPS.toFixed(1) + " Calculators per second)";
   }
 }
 
@@ -107,7 +107,7 @@ function findWizard() {
     nextWizard += 1.75 * wizards;
     button4.innerHTML = "Find a Wizard (" + Math.floor(nextWizard) + " Calculators)";
     cPS += wizardOutput * 100;
-    perSecond.innerHTML = "(" + cPS + " Calculators per second)";
+    perSecond.innerHTML = "(" + cPS.toFixed(1) + " Calculators per second)";
   }
   
   function harnessGuruPower(){
@@ -120,7 +120,7 @@ function findWizard() {
       nextGuru += 2 * gurus;
       button5.innerHTML = "Harness Guru Power (" + Math.floor(nextGuru) + " Calculators)";
       cPS += guruOutput * 100;
-      perSecond.innerHTML = "(" + cPS + " Calculators per second)";
+      perSecond.innerHTML = "(" + cPS.toFixed(1) + " Calculators per second)";
     }
   }
   
@@ -134,7 +134,7 @@ function findWizard() {
       kermMartian += 2.25 * martians;
       button6.innerHTML = "Discover Martian Life (" + Math.floor(kermMartian) + " Calculators)";
       cPS += martianOutput * 100;
-      perSecond.innerHTML = "(" + cPS + " Calculators per second)";
+      perSecond.innerHTML = "(" + cPS.toFixed(1) + " Calculators per second)";
     }
   }
   
@@ -148,7 +148,7 @@ function findWizard() {
       nextOverclock += 3 * overclocks;
       button7.innerHTML = "The Ultimate Overclocking. (" + Math.floor(nextOverclock) + " Calculators)";
       cPS += overclockOutput * 100;
-      perSecond.innerHTML = "(" + cPS + " Calculators per second)";
+      perSecond.innerHTML = "(" + cPS.toFixed(1) + " Calculators per second)";
     }
   }
 
