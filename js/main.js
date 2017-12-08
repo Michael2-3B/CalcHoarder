@@ -27,7 +27,7 @@ var calculators = 0,
     nextGuru = 2500,
     kermMartian = 10000,
     nextOverclock = 100000,
-    calculatorsPerSecond = 0;
+    cPS = 0;
 
 var sellerOutput = 0.002,
     geekOutput = 0.01,
@@ -78,8 +78,8 @@ function getSeller() {
     totalSellers.innerHTML = sellers + " Sellers";
     nextSeller += 1.25 * sellers;
     button2.innerHTML = "Get a Seller (" + Math.floor(nextSeller) + " Calculators)";
-    calculatorsPerSecond += sellerOutput;
-    perSecond.innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
+    cPS += sellerOutput * 100;
+    perSecond.innerHTML = "(" + cPS + " Calculators per second)";
   }
 }
 
@@ -92,8 +92,8 @@ function befriendGeek() {
     totalGeeks.innerHTML = geeks + " Geeks";
     nextGeek += 1.5 * geeks;
     button3.innerHTML = "Befriend a Geek (" + Math.floor(nextGeek) + " Calculators)";
-    calculatorsPerSecond += geekOutput;
-    perSecond.innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
+    cPS += geekOutput * 100;
+    perSecond.innerHTML = "(" + cPS + " Calculators per second)";
   }
 }
 
@@ -106,8 +106,8 @@ function findWizard() {
     totalWizards.innerHTML = wizards + " Wizards";
     nextWizard += 1.75 * wizards;
     button4.innerHTML = "Find a Wizard (" + Math.floor(nextWizard) + " Calculators)";
-    calculatorsPerSecond += wizardOutput;
-    perSecond.innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
+    cPS += wizardOutput * 100;
+    perSecond.innerHTML = "(" + cPS + " Calculators per second)";
   }
   
   function harnessGuruPower(){
@@ -119,8 +119,8 @@ function findWizard() {
       totalGurus.innerHTML = gurus + " Gurus";
       nextGuru += 2 * gurus;
       button5.innerHTML = "Harness Guru Power (" + Math.floor(nextGuru) + " Calculators)";
-      calculatorsPerSecond += guruOutput;
-      perSecond.innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
+      cPS += guruOutput * 100;
+      perSecond.innerHTML = "(" + cPS + " Calculators per second)";
     }
   }
   
@@ -133,8 +133,8 @@ function findWizard() {
       totalMartians.innerHTML = martians + " Martians";
       kermMartian += 2.25 * martians;
       button6.innerHTML = "Discover Martian Life (" + Math.floor(kermMartian) + " Calculators)";
-      calculatorsPerSecond += martianOutput;
-      perSecond.innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
+      cPS += martianOutput * 100;
+      perSecond.innerHTML = "(" + cPS + " Calculators per second)";
     }
   }
   
@@ -147,8 +147,8 @@ function findWizard() {
       totalOverclockers.innerHTML = overclocks + " Overclockers";
       nextOverclock += 3 * overclocks;
       button7.innerHTML = "The Ultimate Overclocking. (" + Math.floor(nextOverclock) + " Calculators)";
-      calculatorsPerSecond += overclockOutput;
-      perSecond.innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
+      cPS += overclockOutput * 100;
+      perSecond.innerHTML = "(" + cPS + " Calculators per second)";
     }
   }
 
