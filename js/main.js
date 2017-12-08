@@ -78,7 +78,7 @@ function getSeller() {
 		totalSellers.style.visibility = 'visible';
 		totalSellers.innerHTML = sellers + " Sellers";
 		nextSeller *= 1.15;
-		button2.innerHTML = "Get a Seller (" + Math.floor(nextSeller) + " Calculators)";
+		button2.innerHTML = "Partner with a seller (" + Math.floor(nextSeller) + " Calculators)";
 		cPS += sellerOutput * 100;
 		perSecond.innerHTML = "(" + cPS.toFixed(1) + " calculators per second)";
 	}
