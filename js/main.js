@@ -88,7 +88,7 @@ function getSeller() {
 		totalSellers.style.visibility = 'visible';
 		totalSellers.innerHTML = sellers + " Sellers";
 		nextSeller *= 1.15;
-		button2.innerHTML = "Partner with a seller (" + Math.floor(nextSeller) + " Calculators)";
+		button2.innerHTML = "Partner with a seller (+" + (sellerOutput * 100) + " cps)" + "<br>(" + Math.floor(nextSeller) + " Calculators)";
 		cps += sellerOutput * 100;
 		perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
 	}
@@ -102,7 +102,7 @@ function befriendGeek() {
 		totalGeeks.style.visibility = 'visible';
 		totalGeeks.innerHTML = geeks + " Geeks";
 		nextGeek *= 1.15;
-		button3.innerHTML = "Befriend a Geek (" + Math.floor(nextGeek) + " Calculators)";
+		button3.innerHTML = "Befriend a Geek (+" + (geekOutput * 100) + " cps)" + "<br>(" + Math.floor(nextGeek) + " Calculators)";
 		cps += geekOutput * 100;
 		perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
 	}
@@ -116,7 +116,7 @@ function findWizard() {
 		totalWizards.style.visibility = 'visible';
 		totalWizards.innerHTML = wizards + " Wizards";
 		nextWizard *= 1.15;
-		button4.innerHTML = "Find a Wizard (" + Math.floor(nextWizard) + " Calculators)";
+		button4.innerHTML = "Find a Wizard (+" + (wizardOutput * 100) + " cps)" + "<br>(" + Math.floor(nextWizard) + " Calculators)";
 		cps += wizardOutput * 100;
 		perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
 	}
@@ -130,7 +130,7 @@ function harnessGuruPower() {
 		totalGurus.style.visibility = 'visible';
 		totalGurus.innerHTML = gurus + " Gurus";
 		nextGuru *= 1.15;
-		button5.innerHTML = "Harness Guru Power (" + Math.floor(nextGuru) + " Calculators)";
+		button5.innerHTML = "Harness Guru Power (+" + (guruOutput * 100) + " cps)" + "<br>(" + Math.floor(nextGuru) + " Calculators)";
 		cps += guruOutput * 100;
 		perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
 	}
@@ -144,7 +144,7 @@ function discoverMartians() {
 		totalMartians.style.visibility = 'visible';
 		totalMartians.innerHTML = martians + " Martians";
 		kermMartian *= 1.15;
-		button6.innerHTML = "Discover Martian Life (" + Math.floor(kermMartian) + " Calculators)";
+		button6.innerHTML = "Discover Martian Life (+" + (martianOutput * 100) + " cps)" + "<br>(" + Math.floor(kermMartian) + " Calculators)";
 		cps += martianOutput * 100;
 		perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
 	}
@@ -158,7 +158,7 @@ function ultimateOverclock() {
 		totalOverclockers.style.visibility = 'visible';
 		totalOverclockers.innerHTML = overclocks + " Overclockers";
 		nextOverclock *= 1.15;
-		button7.innerHTML = "The Ultimate Overclocking. (" + Math.floor(nextOverclock) + " Calculators)";
+		button7.innerHTML = "The Ultimate Overclocking. (+" + (overclockOutput * 100) + " cps)" + "<br>(" + Math.floor(nextOverclock) + " Calculators)";
 		cps += overclockOutput * 100;
 		perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
 	}
