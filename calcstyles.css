@@ -1,16 +1,16 @@
 body {
-  font-family: "Courier New";
+	font-family: "Courier New";
 	background-color: #000000;
 	color: white;
 }
 
 h1 {
-  color: #00DD00;
+	color: #00DD00;
 }
 
 .button {
-  background-color: #008000;
-  border: none;
+	background-color: #008000;
+	border: none;
 	color: white;
 	padding: 12px 28px;
 	text-align: center;
