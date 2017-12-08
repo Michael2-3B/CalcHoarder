@@ -1,86 +1,169 @@
-var totalCalculators = document.getElementById("totalCalculators");
-var totalDeliverers = document.getElementById("totalDeliverers");
-var totalGeeks = document.getElementById("totalGeeks");
-var totalWizards = document.getElementById("totalWizards");
-var button2 = document.getElementById("button2");
-var button3 = document.getElementById("button3");
-var button4 = document.getElementById("button4");
-var perSecond = document.getElementById("perSecond");
+//build 12/8/17 10:51AM CST
+var totalCalculators = document.getElementById("totalCalculators"),
+    totalSellers = document.getElementById("totalSellers"),
+    totalGeeks = document.getElementById("totalGeeks"),
+    totalWizards = document.getElementById("totalWizards"),
+    totalGurus = document.getElementById("totalGurus"),
+    totalMartians = document.getElementById("totalMartians"),
+    totalOverclockers = document.getElementById("totalOverclockers"),
+    perSecond = document.getElementById("perSecond"),
+    upgrade = document.getElementById("upgrade");
+    
+var button2 = document.getElementById("button2"),
+    button3 = document.getElementById("button3"),
+    button4 = document.getElementById("button4"),
+    button5 = document.getElementById("button5"),
+    button6 = document.getElementById("button6"),
+    button7 = document.getElementById("button7");
 
-var calculators = 0;
-var deliverers = 0;
-var geeks = 0;
-var wizards = 0;
-var calculatorPrice = 25;
-var geekTrust = 100;
-var wizardMagic = 500;
-var calculatorsPerSecond = 0;
+var calculators = 0,
+    sellers = 0,
+    geeks = 0,
+    wizards = 0,
+    gurus = 0,
+    martians = 0,
+    overclocks = 0,
+    nextSeller = 15,
+    nextGeek = 100,
+    nextWizard = 1000,
+    nextGuru = 12000,
+    kermMartian = 130000,
+    nextOverclock = 1400000,
+    nextUpgrade = nextSeller,
+    cps = 0;
+
+var sellerOutput = 0.001,
+    geekOutput = 0.01,
+    wizardOutput = 0.1,
+    guruOutput = 1,
+    martianOutput = 10,
+    overclockOutput = 100;
 
 function getCalculators() {
-  calculators += 1;
-  totalCalculators.innerHTML = Math.floor(calculators) + " Calculators";
-  if (calculators >= calculatorPrice && button3.style.visibility == 'hidden') {
-    button2.style.visibility = 'visible';
-  }
-  if (calculators >= geekTrust && button3.style.visibility == 'hidden') {
-    button3.style.visibility = 'visible';
-  }
-  if (calculators >= wizardMagic && button4.style.visibility == 'hidden') {
-    button4.style.visibility = 'visible';
-  }
+	calculators += 1;
+	totalCalculators.innerHTML = Math.floor(calculators) + " Calculators";
+	makeVisible();
+}
+
+function makeVisible(){
+	if (calculators >= nextUpgrade){
+		if (calculators >= nextSeller && button2.style.visibility == 'hidden') {
+			button2.style.visibility = 'visible';
+			nextUpgrade = nextGeek;
+		}
+		if (calculators >= nextGeek && button3.style.visibility == 'hidden') {
+			button3.style.visibility = 'visible';
+			nextUpgrade = nextWizard;
+		}
+		if (calculators >= nextWizard && button4.style.visibility == 'hidden') {
+			button4.style.visibility = 'visible';
+			nextUpgrade = nextGuru;
+		}
+		if (calculators >= nextGuru && button5.style.visibility == 'hidden'){
+			button5.style.visibility = 'visible';
+			nextUpgrade = kermMartian;
+		}
+		if (calculators >= kermMartian && button6.style.visibility == 'hidden'){
+			button6.style.visibility = 'visible';
+			nextUpgrade = nextOverclock;
+		}
+		if (calculators >= nextOverclock && button7.style.visibility == 'hidden'){
+			button7.style.visibility = 'visible';
+		}
+		upgrade.innerHTML = "New feature at " + nextUpgrade + " calculators.";
+	}
 }
 
 function getAutoCalculators() {
-  calculators += (0.002 * deliverers) + (0.01 * geeks) + (0.1 * wizards);
-  totalCalculators.innerHTML = Math.floor(calculators) + " Calculators";
-  if (calculators >= geekTrust && button3.style.visibility == 'hidden') {
-    button3.style.visibility = 'visible';
-  }
-  if (calculators >= wizardMagic && button4.style.visibility == 'hidden') {
-    button4.style.visibility = 'visible';
-  }
-
-  calculatorsPerSecond = geeks + deliverers / 5 + wizards * 10;
-  perSecond.innerHTML = "(" + calculatorsPerSecond + " Calculators per second)";
+	calculators += cps/100;
+	totalCalculators.innerHTML = Math.floor(calculators) + " Calculators";
+	makeVisible();
 }
 
-function getDeliverer() {
-  if (calculators >= calculatorPrice) {
-    calculators -= calculatorPrice;
-    deliverers += 1;
-    totalCalculators.innerHTML = calculators + " Calculators";
-    totalDeliverers.style.visibility = 'visible';
-    totalDeliverers.innerHTML = deliverers + " Auto-Deliverers";
-    calculatorPrice += 1.25 * deliverers;
-    button2.innerHTML = "Get an Auto-Deliverer (" + Math.floor(calculatorPrice) + " Calculators)";
-  }
+function getSeller() {
+	if (calculators >= nextSeller) {
+		calculators -= nextSeller;
+		sellers += 1;
+		totalCalculators.innerHTML = calculators + " Calculators";
+		totalSellers.style.visibility = 'visible';
+		totalSellers.innerHTML = sellers + " Sellers";
+		nextSeller *= 1.15;
+		button2.innerHTML = "Partner with a seller (+" + (sellerOutput * 100) + " cps)" + "<br>(" + Math.floor(nextSeller) + " Calculators)";
+		cps += sellerOutput * 100;
+		perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
+	}
 }
 
 function befriendGeek() {
-  if (calculators >= geekTrust) {
-    calculators -= geekTrust;
-    geeks += 1;
-    totalCalculators.innerHTML = calculators + " Calculators";
-    totalGeeks.style.visibility = 'visible';
-    totalGeeks.innerHTML = geeks + " Geeks";
-    geekTrust += 1.5 * geeks;
-    button3.innerHTML = "Befriend a Geek (" + Math.floor(geekTrust) + " Calculators)";
-  }
+	if (calculators >= nextGeek) {
+		calculators -= nextGeek;
+		geeks += 1;
+		totalCalculators.innerHTML = calculators + " Calculators";
+		totalGeeks.style.visibility = 'visible';
+		totalGeeks.innerHTML = geeks + " Geeks";
+		nextGeek *= 1.15;
+		button3.innerHTML = "Befriend a Geek (+" + (geekOutput * 100) + " cps)" + "<br>(" + Math.floor(nextGeek) + " Calculators)";
+		cps += geekOutput * 100;
+		perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
+	}
 }
 
 function findWizard() {
-  if (calculators >= wizardMagic) {
-    calculators -= wizardMagic;
-    wizards += 1;
-    totalCalculators.innerHTML = calculators + " Calculators";
-    totalWizards.style.visibility = 'visible';
-    totalWizards.innerHTML = wizards + " Wizards";
-    wizardMagic += 1.75 * wizards;
-    button4.innerHTML = "Find a Wizard (" + Math.floor(wizardMagic) + " Calculators)";
-  }
+	if (calculators >= nextWizard) {
+		calculators -= nextWizard;
+		wizards += 1;
+		totalCalculators.innerHTML = calculators + " Calculators";
+		totalWizards.style.visibility = 'visible';
+		totalWizards.innerHTML = wizards + " Wizards";
+		nextWizard *= 1.15;
+		button4.innerHTML = "Find a Wizard (+" + (wizardOutput * 100) + " cps)" + "<br>(" + Math.floor(nextWizard) + " Calculators)";
+		cps += wizardOutput * 100;
+		perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
+	}
+}
+    
+function harnessGuruPower() {
+	if (calculators >= nextGuru){
+		calculators -= nextGuru;
+		gurus += 1;
+		totalCalculators.innerHTML = calculators + " Calculators";
+		totalGurus.style.visibility = 'visible';
+		totalGurus.innerHTML = gurus + " Gurus";
+		nextGuru *= 1.15;
+		button5.innerHTML = "Harness Guru Power (+" + (guruOutput * 100) + " cps)" + "<br>(" + Math.floor(nextGuru) + " Calculators)";
+		cps += guruOutput * 100;
+		perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
+	}
+}
 
+function discoverMartians() {
+	if (calculators >= kermMartian){
+		calculators -= kermMartian;
+		martians += 1;
+		totalCalculators.innerHTML = calculators + " Calculators";
+		totalMartians.style.visibility = 'visible';
+		totalMartians.innerHTML = martians + " Martians";
+		kermMartian *= 1.15;
+		button6.innerHTML = "Discover Martian Life (+" + (martianOutput * 100) + " cps)" + "<br>(" + Math.floor(kermMartian) + " Calculators)";
+		cps += martianOutput * 100;
+		perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
+	}
+}
+  
+function ultimateOverclock() {
+	if (calculators >= nextOverclock){
+		calculators -= nextOverclock;
+		overclocks += 1;
+		totalCalculators.innerHTML = calculators + " Calculators";
+		totalOverclockers.style.visibility = 'visible';
+		totalOverclockers.innerHTML = overclocks + " Overclockers";
+		nextOverclock *= 1.15;
+		button7.innerHTML = "The Ultimate Overclocking. (+" + (overclockOutput * 100) + " cps)" + "<br>(" + Math.floor(nextOverclock) + " Calculators)";
+		cps += overclockOutput * 100;
+		perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
+	}
 }
 
 window.onload = function () {
-  setInterval('getAutoCalculators()', 10);
+	setInterval('getAutoCalculators()', 10);
 }
