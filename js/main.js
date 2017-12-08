@@ -1,4 +1,4 @@
-//build 12/8/17 2:23AM CST
+//build 12/8/17 10:30AM CST
 var totalCalculators = document.getElementById("totalCalculators"),
     totalSellers = document.getElementById("totalSellers"),
     totalGeeks = document.getElementById("totalGeeks"),
@@ -28,6 +28,7 @@ var calculators = 0,
     nextGuru = 12000,
     kermMartian = 130000,
     nextOverclock = 1400000,
+    nextUpgrade = nextSeller,
     cPS = 0;
 
 var sellerOutput = 0.001,
@@ -44,23 +45,31 @@ function getCalculators() {
 }
 
 function makeVisible(){
-	if (calculators >= nextSeller && button2.style.visibility == 'hidden') {
-		button2.style.visibility = 'visible';
-	}
-	if (calculators >= nextGeek && button3.style.visibility == 'hidden') {
-		button3.style.visibility = 'visible';
-	}
-	if (calculators >= nextWizard && button4.style.visibility == 'hidden') {
-		button4.style.visibility = 'visible';
-	}
-	if (calculators >= nextGuru && button5.style.visibility == 'hidden'){
-		button5.style.visibility = 'visible';
-	}
-	if (calculators >= kermMartian && button6.style.visibility == 'hidden'){
-		button6.style.visibility = 'visible';
-	}
-	if (calculators >= nextOverclock && button7.style.visibility == 'hidden'){
-		button7.style.visibility = 'visible';
+	if (calculators >= nextUpgrade){
+		if (calculators >= nextSeller && button2.style.visibility == 'hidden') {
+			button2.style.visibility = 'visible';
+			nextUpgrade = nextGeek;
+		}
+		if (calculators >= nextGeek && button3.style.visibility == 'hidden') {
+			button3.style.visibility = 'visible';
+			nextUpgrade = nextWizard;
+		}
+		if (calculators >= nextWizard && button4.style.visibility == 'hidden') {
+			button4.style.visibility = 'visible';
+			nextUpgrade = nextGuru;
+		}
+		if (calculators >= nextGuru && button5.style.visibility == 'hidden'){
+			button5.style.visibility = 'visible';
+			nextUpgrade = kermMartian;
+		}
+		if (calculators >= kermMartian && button6.style.visibility == 'hidden'){
+			button6.style.visibility = 'visible';
+			nextUpgrade = nextOverclock;
+		}
+		if (calculators >= nextOverclock && button7.style.visibility == 'hidden'){
+			button7.style.visibility = 'visible';
+		}
+		upgrade.innerHTML = "New feature at " + nextUpgrade + " calculators.";
 	}
 }
 
