@@ -64,7 +64,7 @@ function makeVisible(){
 }
 
 function getAutoCalculators() {
-  calculators += (sellerOutput * sellers) + (geekOutput * geeks) + (wizardOutput * wizards) + (guruOutput * gurus) + (martianOutput * martians) + (overclockOutput * overclocks);
+  calculators += cPS/100;
   totalCalculators.innerHTML = Math.floor(calculators) + " Calculators";
   makeVisible();
 }
