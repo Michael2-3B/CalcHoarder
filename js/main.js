@@ -78,7 +78,7 @@ function getAutoCalculators() {
 	calculators += cps/100;
 	totalCalculators.innerHTML = Math.floor(calculators) + " Calculators";
 	perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
-	window.document.title = calculators + " calcs | Calculator Hoarder"
+	window.document.title = Math.floor(calculators) + " calcs | Calculator Hoarder"
 	makeVisible();
 	buttonChecker();
 }
