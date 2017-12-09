@@ -10,7 +10,7 @@ h1 {
 	color: #00DD00;
 }
 
-.button {
+button {
 	background-color: #008000;
 	border: none;
 	padding: 12px 28px;
@@ -22,8 +22,9 @@ h1 {
 	transition-duration: 250ms;
 }
 
-.button[disabled] {
+button[disabled] {
 	background-color: #666;
+	color: #ccc;
 }
 
 p {
@@ -34,4 +35,16 @@ p {
 	font-size: 12px;
 	position: fixed;
   bottom: 0%;
+}
+
+.on {
+	background-color: #008000;
+}
+
+.off {
+	background-color: red;
+}
+
+.hidden {
+	display: none;
 }
