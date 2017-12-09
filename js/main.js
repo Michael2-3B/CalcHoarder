@@ -168,7 +168,7 @@ window.onload = function () {
 }
 
 function resetSave() {
-	localStorage.setItem("a",0);
+	localStorage.removeItem("a");
 	location.reload();
 }
 
