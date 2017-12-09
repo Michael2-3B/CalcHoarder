@@ -1,4 +1,4 @@
-//build 12/8/17 10:29PM CST
+//build 12/8/17 11:15PM CST
 var totalCalculators = document.getElementById("totalCalculators"),
     totalSellers = document.getElementById("totalSellers"),
     totalGeeks = document.getElementById("totalGeeks"),
@@ -169,6 +169,7 @@ window.onload = function () {
 
 function resetSave() {
 	localStorage.setItem("a",0);
+	location.reload();
 }
 
 function load() {
