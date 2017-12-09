@@ -90,7 +90,7 @@ function getSeller() {
 		totalCalculators.innerHTML = calculators + " Calculators";
 		totalSellers.style.visibility = 'visible';
 		totalSellers.innerHTML = sellers + " Sellers";
-		nextSeller *= 1.15;
+		nextSeller *= 1.1;
 		button2.innerHTML = "Partner with a seller (+" + (sellerOutput * 100) + " cps)" + "<br>(" + Math.floor(nextSeller) + " Calculators)";
 		cps += sellerOutput * 100;
 	}
@@ -116,7 +116,7 @@ function findWizard() {
 		totalCalculators.innerHTML = calculators + " Calculators";
 		totalWizards.style.visibility = 'visible';
 		totalWizards.innerHTML = wizards + " Wizards";
-		nextWizard *= 1.15;
+		nextWizard *= 1.2;
 		button4.innerHTML = "Find a Wizard (+" + (wizardOutput * 100) + " cps)" + "<br>(" + Math.floor(nextWizard) + " Calculators)";
 		cps += wizardOutput * 100;
 	}
@@ -129,7 +129,7 @@ function harnessGuruPower() {
 		totalCalculators.innerHTML = calculators + " Calculators";
 		totalGurus.style.visibility = 'visible';
 		totalGurus.innerHTML = gurus + " Gurus";
-		nextGuru *= 1.15;
+		nextGuru *= 1.3;
 		button5.innerHTML = "Harness Guru Power (+" + (guruOutput * 100) + " cps)" + "<br>(" + Math.floor(nextGuru) + " Calculators)";
 		cps += guruOutput * 100;
 	}
@@ -142,7 +142,7 @@ function discoverMartians() {
 		totalCalculators.innerHTML = calculators + " Calculators";
 		totalMartians.style.visibility = 'visible';
 		totalMartians.innerHTML = martians + " Martians";
-		kermMartian *= 1.15;
+		kermMartian *= 1.35;
 		button6.innerHTML = "Discover Martian Life (+" + (martianOutput * 100) + " cps)" + "<br>(" + Math.floor(kermMartian) + " Calculators)";
 		cps += martianOutput * 100;
 	}
@@ -155,7 +155,7 @@ function ultimateOverclock() {
 		totalCalculators.innerHTML = calculators + " Calculators";
 		totalOverclockers.style.visibility = 'visible';
 		totalOverclockers.innerHTML = overclocks + " Overclockers";
-		nextOverclock *= 1.15;
+		nextOverclock *= 1.4;
 		button7.innerHTML = "The Ultimate Overclocking. (+" + (overclockOutput * 100) + " cps)" + "<br>(" + Math.floor(nextOverclock) + " Calculators)";
 		cps += overclockOutput * 100;
 		perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
