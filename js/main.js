@@ -167,6 +167,10 @@ window.onload = function () {
 	load();
 }
 
+function resetSave() {
+	localStorage.setItem("a",0);
+}
+
 function load() {
 	if (localStorage.getItem("a")) {
 	  //Format:
