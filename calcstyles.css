@@ -2,6 +2,8 @@ body {
 	font-family: "Courier New";
 	background-color: #000000;
 	color: white;
+	position: relative;
+	height: 100%;
 }
 
 h1 {
@@ -11,12 +13,25 @@ h1 {
 .button {
 	background-color: #008000;
 	border: none;
-	color: white;
 	padding: 12px 28px;
 	text-align: center;
 	display: inline-block;
 	font-size: 14px;
 	margin: 4px 2px;
 	cursor: pointer;
-	font-family: "Courier New"
+	transition-duration: 250ms;
+}
+
+.button[disabled] {
+	background-color: #666;
+}
+
+p {
+	transition-duration: 1s;
+}
+
+#footer {
+	font-size: 12px;
+	position: fixed;
+  bottom: 0%;
 }
