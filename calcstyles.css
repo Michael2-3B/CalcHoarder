@@ -3,7 +3,26 @@ body {
 	background-color: #000000;
 	color: white;
 	position: relative;
-	height: 100%;
+	height: 100vh;
+}
+
+.column {
+	width: 50%;
+	display: inline-block;
+	height: 100vh;
+	float: left;
+}
+
+#column2 button {
+	background-color: #009e0c;
+}
+
+#column2 .on {
+	background-color: #008000;
+}
+
+#column2 .off {
+	background-color: #d60000;
 }
 
 h1 {

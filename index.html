@@ -10,6 +10,7 @@
 		<H1 id="totalCalculators">0 Calculators</H1>
 		<p id="perSecond">(0 calculators per second)</p>
 		<p id="upgrade" style="color: lightblue">New feature at 15 calculators.</p>
+		<div id="column1" class="column">
 		<div id="shop">
 			<button onclick="getCalculators()" class="button">Get a calculator.</button>
 			<button onclick="getSeller()" id="button2" style="visibility: hidden;">Partner with a seller (+0.1 cps)<br>(15 Calculators)</button>
@@ -27,8 +28,8 @@
 			<H2 id="totalMartians" style="visibility: hidden;">0 Martians</H2>
 			<H2 id="totalOverclockers" style="visibility: hidden;">0 Overclockers</H2>
 		</div>
-		<div id="messages">
-		</div>
+	</div>
+	<div id="column2" class="column">
 		<br>
 		<button onclick="toggleSaveControlPanel()">Show/Hide Save Options.</button>
 		<div id="saveControlPanel" style="display: none; visibility: hidden;">
@@ -36,6 +37,9 @@
 			<button onclick="toggleAutoSave()" class="on" id="toggleAutoSave">Toggle Auto-Saving (Currently ON)</button><br />
 			<button onclick="resetSave()" style="background-color: red">Reset Save.</button>
 		</div>
+		<div id="messages">
+		</div>
+	</div>
 		<SCRIPT src="js/main.js"></SCRIPT>
 		<p id="footer"> Game made by <strong>Michael2_3B</strong> and <strong>_iPhoenix_</strong></p>
 	</body>

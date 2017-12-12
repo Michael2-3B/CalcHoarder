@@ -118,7 +118,7 @@ function findWizard() {
 		wizards += 1;
 		totalCalculators.innerHTML = format(calculators, 0, "Calculator");
 		totalWizards.style.visibility = 'visible';
-		totalWizards.innerHTML = wizards + " Wizards";
+		totalWizards.innerHTML = format(wizards, 0, "Wizard");
 		nextWizard *= 1.2;
 		button4.innerHTML = "Find a Wizard (+" + (wizardOutput * 100) + " cps)" + "<br>(" + format(nextWizard, 0, "Calculator") + ")";
 		cps += wizardOutput * 100;
@@ -131,7 +131,7 @@ function harnessGuruPower() {
 		gurus += 1;
 		totalCalculators.innerHTML = format(calculators, 0, "Calculator");
 		totalGurus.style.visibility = 'visible';
-		totalGurus.innerHTML = gurus + " Gurus";
+		totalGurus.innerHTML = format(gurus, 0, "Guru");
 		nextGuru *= 1.3;
 		button5.innerHTML = "Harness Guru Power (+" + (guruOutput * 100) + " cps)" + "<br>(" + format(nextGuru, 0, "Calculator") + ")";
 		cps += guruOutput * 100;
@@ -142,9 +142,9 @@ function discoverMartians() {
 	if (calculators >= kermMartian){
 		calculators -= kermMartian;
 		martians += 1;
-		totalCalculators.innerHTML = calculators + " Calculators";
+		totalCalculators.innerHTML = format(calculators, 0, "Calculator");
 		totalMartians.style.visibility = 'visible';
-		totalMartians.innerHTML = martians + " Martians";
+		totalMartians.innerHTML = format(martians, 0, "Martian");
 		kermMartian *= 1.35;
 		button6.innerHTML = "Discover Martian Life (+" + (martianOutput * 100) + " cps)" + "<br>(" + format(kermMartian, 0, "Calculator") + ")";
 		cps += martianOutput * 100;
@@ -155,9 +155,9 @@ function ultimateOverclock() {
 	if (calculators >= nextOverclock){
 		calculators -= nextOverclock;
 		overclocks += 1;
-		totalCalculators.innerHTML = calculators + " Calculators";
+		totalCalculators.innerHTML = format(calculators, 0, "Calculator");
 		totalOverclockers.style.visibility = 'visible';
-		totalOverclockers.innerHTML = overclocks + " Overclockers";
+		totalOverclockers.innerHTML = format(overclocks, 0, "Overclocker");
 		nextOverclock *= 1.4;
 		button7.innerHTML = "The Ultimate Overclocking. (+" + (overclockOutput * 100) + " cps)" + "<br>(" + format(nextOverclock, 0, "Calculator") + ")";
 		cps += overclockOutput * 100;
