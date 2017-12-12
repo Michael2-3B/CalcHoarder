@@ -1,4 +1,7 @@
 //build 12/8/17 11:15PM CST
+var autoSaveIntervalID,
+		saveControlPanelVisible = false;
+
 var totalCalculators = document.getElementById("totalCalculators"),
     totalSellers = document.getElementById("totalSellers"),
     totalGeeks = document.getElementById("totalGeeks"),
@@ -41,7 +44,7 @@ var sellerOutput = 0.001,
 
 function getCalculators() {
 	calculators += 1;
-	totalCalculators.innerHTML = Math.floor(calculators) + " Calculators";
+	totalCalculators.innerHTML = format(calculators, 0, "Calculator");
 	makeVisible();
 }
 
@@ -76,8 +79,9 @@ function makeVisible(){
 
 function getAutoCalculators() {
 	calculators += cps/100;
-	totalCalculators.innerHTML = Math.floor(calculators) + " Calculators";
-	perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
+	totalCalculators.innerHTML = format(calculators, 0, "Calculator");
+	perSecond.innerHTML = "(" + format(cps, 1, "calculator", true) + " per second)";
+	window.document.title = format(calculators, 0, "calc", true) + " | Calculator Hoarder"
 	makeVisible();
 	buttonChecker();
 }
@@ -86,11 +90,11 @@ function getSeller() {
 	if (calculators >= nextSeller) {
 		calculators -= nextSeller;
 		sellers += 1;
-		totalCalculators.innerHTML = calculators + " Calculators";
+		totalCalculators.innerHTML = format(calculators, 0, "Calculator");
 		totalSellers.style.visibility = 'visible';
-		totalSellers.innerHTML = sellers + " Sellers";
-		nextSeller *= 1.15;
-		button2.innerHTML = "Partner with a seller (+" + (sellerOutput * 100) + " cps)" + "<br>(" + Math.floor(nextSeller) + " Calculators)";
+		totalSellers.innerHTML = format(sellers, 0, "Seller");
+		nextSeller *= 1.1;
+		button2.innerHTML = "Partner with a seller (+" + (sellerOutput * 100) + " cps)" + "<br>(" + format(nextSeller, 0, "Calculator") + ")";
 		cps += sellerOutput * 100;
 	}
 }
@@ -99,11 +103,11 @@ function befriendGeek() {
 	if (calculators >= nextGeek) {
 		calculators -= nextGeek;
 		geeks += 1;
-		totalCalculators.innerHTML = calculators + " Calculators";
+		totalCalculators.innerHTML = format(calculators, 0, "Calculator");
 		totalGeeks.style.visibility = 'visible';
-		totalGeeks.innerHTML = geeks + " Geeks";
+		totalGeeks.innerHTML = format(geeks, 0, "Geek");
 		nextGeek *= 1.15;
-		button3.innerHTML = "Befriend a Geek (+" + (geekOutput * 100) + " cps)" + "<br>(" + Math.floor(nextGeek) + " Calculators)";
+		button3.innerHTML = "Befriend a Geek (+" + (geekOutput * 100) + " cps)" + "<br>(" + format(nextGeek, 0, "Calculator") + ")";
 		cps += geekOutput * 100;
 	}
 }
@@ -112,11 +116,11 @@ function findWizard() {
 	if (calculators >= nextWizard) {
 		calculators -= nextWizard;
 		wizards += 1;
-		totalCalculators.innerHTML = calculators + " Calculators";
+		totalCalculators.innerHTML = format(calculators, 0, "Calculator");
 		totalWizards.style.visibility = 'visible';
-		totalWizards.innerHTML = wizards + " Wizards";
-		nextWizard *= 1.15;
-		button4.innerHTML = "Find a Wizard (+" + (wizardOutput * 100) + " cps)" + "<br>(" + Math.floor(nextWizard) + " Calculators)";
+		totalWizards.innerHTML = format(wizards, 0, "Wizard");
+		nextWizard *= 1.2;
+		button4.innerHTML = "Find a Wizard (+" + (wizardOutput * 100) + " cps)" + "<br>(" + format(nextWizard, 0, "Calculator") + ")";
 		cps += wizardOutput * 100;
 	}
 }
@@ -125,11 +129,11 @@ function harnessGuruPower() {
 	if (calculators >= nextGuru){
 		calculators -= nextGuru;
 		gurus += 1;
-		totalCalculators.innerHTML = calculators + " Calculators";
+		totalCalculators.innerHTML = format(calculators, 0, "Calculator");
 		totalGurus.style.visibility = 'visible';
-		totalGurus.innerHTML = gurus + " Gurus";
-		nextGuru *= 1.15;
-		button5.innerHTML = "Harness Guru Power (+" + (guruOutput * 100) + " cps)" + "<br>(" + Math.floor(nextGuru) + " Calculators)";
+		totalGurus.innerHTML = format(gurus, 0, "Guru");
+		nextGuru *= 1.3;
+		button5.innerHTML = "Harness Guru Power (+" + (guruOutput * 100) + " cps)" + "<br>(" + format(nextGuru, 0, "Calculator") + ")";
 		cps += guruOutput * 100;
 	}
 }
@@ -138,11 +142,11 @@ function discoverMartians() {
 	if (calculators >= kermMartian){
 		calculators -= kermMartian;
 		martians += 1;
-		totalCalculators.innerHTML = calculators + " Calculators";
+		totalCalculators.innerHTML = format(calculators, 0, "Calculator");
 		totalMartians.style.visibility = 'visible';
-		totalMartians.innerHTML = martians + " Martians";
-		kermMartian *= 1.15;
-		button6.innerHTML = "Discover Martian Life (+" + (martianOutput * 100) + " cps)" + "<br>(" + Math.floor(kermMartian) + " Calculators)";
+		totalMartians.innerHTML = format(martians, 0, "Martian");
+		kermMartian *= 1.35;
+		button6.innerHTML = "Discover Martian Life (+" + (martianOutput * 100) + " cps)" + "<br>(" + format(kermMartian, 0, "Calculator") + ")";
 		cps += martianOutput * 100;
 	}
 }
@@ -151,25 +155,27 @@ function ultimateOverclock() {
 	if (calculators >= nextOverclock){
 		calculators -= nextOverclock;
 		overclocks += 1;
-		totalCalculators.innerHTML = calculators + " Calculators";
+		totalCalculators.innerHTML = format(calculators, 0, "Calculator");
 		totalOverclockers.style.visibility = 'visible';
-		totalOverclockers.innerHTML = overclocks + " Overclockers";
-		nextOverclock *= 1.15;
-		button7.innerHTML = "The Ultimate Overclocking. (+" + (overclockOutput * 100) + " cps)" + "<br>(" + Math.floor(nextOverclock) + " Calculators)";
+		totalOverclockers.innerHTML = format(overclocks, 0, "Overclocker");
+		nextOverclock *= 1.4;
+		button7.innerHTML = "The Ultimate Overclocking. (+" + (overclockOutput * 100) + " cps)" + "<br>(" + format(nextOverclock, 0, "Calculator") + ")";
 		cps += overclockOutput * 100;
-		perSecond.innerHTML = "(" + cps.toFixed(1) + " calculators per second)";
 	}
 }
 
 window.onload = function () {
 	setInterval('getAutoCalculators()', 10);
-	setInterval('save()',30000);
+	autoSaveIntervalID = setInterval('save()',30000);
 	load();
 }
 
 function resetSave() {
-	localStorage.removeItem("a");
-	location.reload();
+	if (confirm("Are you sure you want to reset your save?\nThis cannot be undone"))
+	{
+		localStorage.removeItem("a");
+		location.reload();
+	}
 }
 
 function load() {
@@ -201,37 +207,37 @@ function load() {
 
     if (sellers != 0) {
 			button2.style.visibility = 'visible';
-			button2.innerHTML = "Partner with a seller (+" + (sellerOutput * 100) + " cps)" + "<br>(" + Math.floor(nextSeller) + " Calculators)";
+			button2.innerHTML = "Partner with a seller (+" + (sellerOutput * 100) + " cps)" + "<br>(" + format(nextSeller, 0, "Calculator") + ")";
 			totalSellers.style.visibility = 'visible';
 			totalSellers.innerHTML = sellers + " Sellers";
 		}
 		if (geeks != 0) {
 			button3.style.visibility = 'visible';
-			button3.innerHTML = "Befriend a Geek (+" + (geekOutput * 100) + " cps)" + "<br>(" + Math.floor(nextGeek) + " Calculators)";
+			button3.innerHTML = "Befriend a Geek (+" + (geekOutput * 100) + " cps)" + "<br>(" + format(nextGeek, 0, "Calculator") + ")";
 			totalGeeks.style.visibility = 'visible';
 			totalGeeks.innerHTML = geeks + " Geeks";
 		}
 		if (wizards != 0) {
 			button4.style.visibility = 'visible';
-			button4.innerHTML = "Find a Wizard (+" + (wizardOutput * 100) + " cps)" + "<br>(" + Math.floor(nextWizard) + " Calculators)";
+			button4.innerHTML = "Find a Wizard (+" + (wizardOutput * 100) + " cps)" + "<br>(" + format(nextWizard, 0, "Calculator") + ")";
 			totalWizards.style.visibility = 'visible';
 			totalWizards.innerHTML = wizards + " Wizards";
 		}
 		if (gurus != 0){
 			button5.style.visibility = 'visible';
-			button5.innerHTML = "Harness Guru Power (+" + (guruOutput * 100) + " cps)" + "<br>(" + Math.floor(nextGuru) + " Calculators)";
+			button5.innerHTML = "Harness Guru Power (+" + (guruOutput * 100) + " cps)" + "<br>(" + format(nextGuru, 0, "Calculator") + ")";
 			totalGurus.style.visibility = 'visible';
 			totalGurus.innerHTML = gurus + " Gurus";
 		}
 		if (martians != 0){
 			button6.style.visibility = 'visible';
-			button6.innerHTML = "Discover Martian Life (+" + (martianOutput * 100) + " cps)" + "<br>(" + Math.floor(kermMartian) + " Calculators)";
+			button6.innerHTML = "Discover Martian Life (+" + (martianOutput * 100) + " cps)" + "<br>(" + format(kermMartian, 0, "Calculator") + ")";
 			totalMartians.style.visibility = 'visible';
 			totalMartians.innerHTML = martians + " Martians";
 		}
 		if (overclocks != 0){
 			button7.style.visibility = 'visible';
-			button7.innerHTML = "The Ultimate Overclocking. (+" + (overclockOutput * 100) + " cps)" + "<br>(" + Math.floor(nextOverclock) + " Calculators)";
+			button7.innerHTML = "The Ultimate Overclocking. (+" + (overclockOutput * 100) + " cps)" + "<br>(" + format(nextOverclock, 0, "Calculator") + ")";
 			totalOverclockers.style.visibility = 'visible';
 			totalOverclockers.innerHTML = overclocks + " Overclockers";
 		}
@@ -284,4 +290,55 @@ function buttonChecker() {
 	button7.disabled = !(calculators >= nextOverclock);
 }
 
+function toggleAutoSave() {
+	var button = document.getElementById("toggleAutoSave");
+	if (autoSaveIntervalID)
+	{
+		clearInterval(autoSaveIntervalID);
+		button.innerText = "Toggle Auto-Saving (Currently OFF)";
+		button.className = "off";
+		autoSaveIntervalID = null;
+	}
+	else
+	{
+		autoSaveIntervalID = setInterval('save()',30000);
+		button.innerText = "Toggle Auto-Saving (Currently ON)";
+		button.className = "on";
+	}
+}
 
+function toggleSaveControlPanel() {
+	var saveControlPanel = document.getElementById("saveControlPanel");
+	if (saveControlPanelVisible) {
+		saveControlPanel.style = "display: none; visibility: hidden;";
+	}
+	else
+	{
+		saveControlPanel.style = "display: block;";
+	}
+	saveControlPanelVisible = !saveControlPanelVisible;
+}
+
+
+/*
+I (_iPhoenix_) am crazy proud of this function.
+
+Syntax:
+	value is the value you want to format
+	numDecimals is the number of decimals you want to round to (to imitate Math.floor, make this 0.)
+	unit is the unit you want to use.
+	showTrailingZeros is optional, use it if you want to show trailing zeros. Defaults to false.
+
+Here are some usage examples:
+	format(12.25, 0, "pig") -> "12 pigs"
+	format(3.141592, 3, "unit") -> "3.141 units"
+	format(0.99, 0, "thing") -> "1 thing"
+	format(2, 5, "thing") -> "2 things"
+	format(2, 5, "thing", true) -> "2.00000 things"
+*/
+function format(value, numDecimals, unit, showTrailingZeros) {
+	value = (showTrailingZeros) ? value.toFixed(numDecimals) : parseFloat(value.toFixed(numDecimals));
+	var formattedValue = value + ' ' + ((value != 1) ? unit + 's' : unit);
+
+	return formattedValue;
+}
