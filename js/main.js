@@ -1,4 +1,3 @@
-//build 12/8/17 11:15PM CST
 var autoSaveIntervalID,
 		saveControlPanelVisible = false;
 
