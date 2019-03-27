@@ -48,7 +48,7 @@ function getCalculators() {
 }
 
 function makeVisible(){
-	if (calculators >= nextUpgrade){
+	if (calculators >= nextUpgrade && button7.style.visiblity == 'hidden'){
 		if (calculators >= nextSeller && button2.style.visibility == 'hidden') {
 			button2.style.visibility = 'visible';
 			nextUpgrade = nextGeek;
