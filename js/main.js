@@ -69,10 +69,11 @@ function makeVisible(){
 			button6.style.visibility = 'visible';
 			nextUpgrade = nextOverclock;
 		}
+		upgrade.innerHTML = "New feature at " + nextUpgrade + " calculators.";
 		if (calculators >= nextOverclock && button7.style.visibility == 'hidden'){
 			button7.style.visibility = 'visible';
+			upgrade.innerHTML = "All features unlocked.";
 		}
-		upgrade.innerHTML = "New feature at " + nextUpgrade + " calculators.";
 	}
 }
 
