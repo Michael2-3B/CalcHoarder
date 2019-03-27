@@ -48,7 +48,7 @@ function getCalculators() {
 }
 
 function makeVisible(){
-	if (calculators >= nextUpgrade && button7.style.visiblity == 'hidden'){
+	if (calculators >= nextUpgrade){
 		if (calculators >= nextSeller && button2.style.visibility == 'hidden') {
 			button2.style.visibility = 'visible';
 			nextUpgrade = nextGeek;
@@ -69,10 +69,11 @@ function makeVisible(){
 			button6.style.visibility = 'visible';
 			nextUpgrade = nextOverclock;
 		}
-		upgrade.innerHTML = "New feature at " + nextUpgrade + " calculators.";
 		if (calculators >= nextOverclock && button7.style.visibility == 'hidden'){
 			button7.style.visibility = 'visible';
 			upgrade.innerHTML = "All features unlocked.";
+		} else {
+			upgrade.innerHTML = "New feature at " + nextUpgrade + " calculators.";
 		}
 	}
 }
