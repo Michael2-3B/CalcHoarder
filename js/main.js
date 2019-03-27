@@ -276,7 +276,7 @@ function save() {
     localStorage.setItem("martianOutput",martianOutput);
     localStorage.setItem("overclockOutput",overclockOutput);
     var n1 = document.createElement("P");
-    n1.appendChild(document.createTextNode("Game Auto-Saved."));
+    n1.appendChild(document.createTextNode("Game Saved."));
 		document.getElementById("messages").appendChild(n1);
 		setTimeout(function() {document.getElementById('messages').children[0].remove()}, 5000);
 }
